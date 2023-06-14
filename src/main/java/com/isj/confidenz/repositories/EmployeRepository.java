@@ -15,4 +15,5 @@ public interface EmployeRepository extends JpaRepository<Employe, String> {
     public  Optional<Employe> findById(String id);
     public List<Employe> findByEntreprise(Entreprise entreprise);
     boolean existsByIdAndEntreprise(String id, Entreprise entreprise);
+    boolean existsById(String id);
 }

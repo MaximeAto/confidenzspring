@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+
 @Slf4j
 @Service
 @Transactional
@@ -38,8 +40,14 @@ public class EmployeService implements IEmploye {
     }
 
     @Override
-    public Employe rechercheEmploye(String id) {
-        Employe employe = employeRepository.findById(id).get();
-        return  employe;
+    public Employe rechercheEmploye(String id) throws IOException {
+        boolean empExist = employeRepository.existsById(id);
+        if (empExist){
+            Employe employe = employeRepository.findById(id).get();
+            return  employe;
+        }
+        throw new IOException("employe inexistant");
+
+
     }
 }

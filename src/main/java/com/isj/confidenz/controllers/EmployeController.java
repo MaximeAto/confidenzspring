@@ -72,7 +72,7 @@ public class EmployeController {
     }
 
     @GetMapping("/findemploye/{id}")
-    public ResponseEntity<?> recehercheEmploye(@PathVariable("id") String id){
+    public ResponseEntity<?> recehercheEmploye(@PathVariable("id") String id) throws IOException{
        Employe employe = employeService.rechercheEmploye(id);
         return  ResponseEntity.ok().body(employe);
     }
