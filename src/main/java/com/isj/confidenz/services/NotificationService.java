@@ -41,7 +41,6 @@ public class NotificationService implements INotification {
 
         for (Employe employe: employes){
             Notification notification = new Notification();
-
             notification.setContenu(notificationDto.getContenu());
             notification.setCreatedate(notificationDto.getCreatedate());
             notification.setEmploye(employe);
